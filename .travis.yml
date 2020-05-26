@@ -1,0 +1,11 @@
+sudo: required
+services: 
+  - docker
+  
+before_install:
+  - docker run -e CI=true sunandalal/docker-react npm run test
+  
+script: 
+  - docker run sunandalal/docker-react npm run test -- --coverage
+  
+language: generic 
